@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuthipong's Credential 💻</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --light-blue: #8892b0;
+            --lighter-blue: #ccd6f6;
+            --accent-blue: #64ffda;
+            
+            /* VSCode-like syntax colors */
+            --keyword: #569cd6;  /* blue */
+            --string: #ce9178;   /* orange/brown */
+            --comment: #6a9955;  /* green */
+            --function: #dcdcaa;  /* yellow */
+            --type: #4ec9b0;     /* teal */
+            --variable: #9cdcfe; /* light blue */
+            --number: #b5cea8;   /* light green */
+            --property: #9cdcfe; /* light blue */
+            --operator: #d4d4d4; /* light gray */
+            
+            /* One Dark Vivid Theme Colors */
+            --one-dark-bg: #282c34;
+            --one-dark-bg-light: rgba(40, 44, 52, 0.1); /* Added lighter version */
+            --one-dark-purple: #c678dd;
+            --one-dark-blue: #61afef;
+            --one-dark-green: #98c379;
+            --one-dark-red: #e06c75;
+            --one-dark-orange: #d19a66;
+            --one-dark-yellow: #e5c07b;
+            --one-dark-fg: #abb2bf;
+            
+            /* Additional vibrant colors for random hover effects */
+            --vibrant-pink: #ff79c6;
+            --vibrant-cyan: #8be9fd;
+            --vibrant-purple: #bd93f9;
+            --vibrant-green: #50fa7b;
+            --vibrant-orange: #ffb86c;
+            --vibrant-red: #ff5555;
+            --vibrant-yellow: #f1fa8c;
+            --vibrant-blue: #6272a4;
+            
+            /* Tech-specific brand colors */
+            --java-color: #007396;
+            --spring-color: #6DB33F;
+            --docker-color: #2496ED;
+            --kubernetes-color: #326CE5;
+            --mongodb-color: #4DB33D;
+            --mysql-color: #4479A1;
+            --redis-color: #DC382D;
+            --elasticsearch-color: #005571;
+            --opensearch-color: #00A0A0;
+            --aws-color: #FF9900;
+            --rest-color: #61DAFB;
+            --graphql-color: #E10098;
+            --junit-color: #25A162;
+            --maven-color: #C71A36;
+            --gradle-color: #02303A;
+            --git-color: #F05032;
+            --microservices-color: #1997B5;
+            
+            /* University colors */
+            --cmu-color: #622599; /* Chiang Mai University purple */
+            /* Company colors */
+            --autopair-color: #00a8e1; /* AUTOPAIR blue */
+            
+            /* Scrollbar color */
+            --scrollbar-color: #61afef; /* Blue scrollbar color */
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(97, 175, 239, 0.1);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(97, 175, 239, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: var(--scrollbar-color) rgba(97, 175, 239, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background-color: var(--white);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(10, 25, 47, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            background-color: var(--white);
+            color: var(--navy);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(10, 25, 47, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            text-decoration: none;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(10, 25, 47, 0.15);
+            background-color: var(--one-dark-bg-light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 20px;
+            margin-bottom: 4rem;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 3px solid var(--white);
+            box-shadow: 0 8px 20px rgba(10, 25, 47, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(10, 25, 47, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            color: var(--light-blue);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--one-dark-blue);
+            border-radius: 3px;
+        }
+        
+        .bio {
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.75rem;
+            margin-bottom: 3.5rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--navy);
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 18px rgba(10, 25, 47, 0.2);
+            background-color: var(--one-dark-bg-light);
+            color: var(--navy);
+        }
+        
+        .social-link svg {
+            transition: color 0.3s ease;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .social-link:hover svg {
+            stroke: var(--one-dark-blue);
+        }
+        
+        /* Section Styles */
+        .section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            scroll-margin-top: 100px; /* For smooth scrolling with sticky nav */
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(10, 25, 47, 0.05);
+        }
+        
+        .section h2 {
+            margin-bottom: 1.75rem;
+            text-align: center;
+            font-size: 2rem;
+            color: var(--navy);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--one-dark-blue);
+            border-radius: 3px;
+        }
+        
+        /* Cards container */
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        /* Education and Experience Cards */
+        .education {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(10, 25, 47, 0.08);
+            text-align: left;
+            border: 1px solid rgba(10, 25, 47, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .education:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.12);
+            border-left: 5px solid var(--cmu-color);
+        }
+        
+        .education.work:hover {
+            border-left: 5px solid var(--autopair-color);
+        }
+
+        .education h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .year-tag {
+            font-size: 0.9rem;
+            background-color: var(--one-dark-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            flex-shrink: 0;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .education:hover .year-tag {
+            background-color: var(--cmu-color);
+            transform: scale(1.05);
+        }
+
+        .education.work:hover .year-tag {
+            background-color: var(--autopair-color);
+            transform: scale(1.05);
+        }
+        
+        .education h4 {
+            color: var(--light-blue);
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+        
+        .education p {
+            color: var(--navy);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+        
+        .education-details {
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(10, 25, 47, 0.1);
+            flex-grow: 1;
+            overflow: visible;
+        }
+        
+        /* Logo */
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            object-fit: contain;
+            border-radius: 8px;
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 3px 10px rgba(10, 25, 47, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .education:hover .logo {
+            transform: scale(1.05);
+        }
+        
+        .education-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tech Stack Section */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tech-item {
+            background-color: var(--white);
+            padding: 0.8rem 1.4rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--navy);
+            box-shadow: 0 3px 10px rgba(10, 25, 47, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            border: 1px solid rgba(10, 25, 47, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(10, 25, 47, 0.15);
+            background-color: var(--one-dark-bg-light);
+            color: var(--navy);
+            border-color: transparent;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            color: var(--light-blue);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(10, 25, 47, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: 4rem 0;
+            }
+            
+            .tech-grid {
+                gap: 0.75rem;
+            }
+            
+            .tech-item {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .education {
+                height: auto;
+                min-height: auto;
+            }
+            
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .education h3 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .year-tag {
+                margin-top: 5px;
+                align-self: flex-start;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+            }
+            
+            .nav-btn {
+                font-size: 0.85rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="nav">
+            <a href="#home" class="nav-btn">Home</a>
+            <a href="#education" class="nav-btn">Education</a>
+            <a href="#tech-stack" class="nav-btn">Tech Stack</a>
+            <a href="#work-experience" class="nav-btn">Work Experience</a>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <img src="https://img2.pic.in.th/pic/IMG_0502-2.jpg" alt="Profile" class="profile-image" />
+        
+        <h1>Nuthipong Pinyai</h1>
+        <p class="title">Backend Developer</p>
+        
+        <p class="bio">
+            Passionate software engineer with expertise in building scalable microservices
+            and cloud-native applications. I specialize in Java Spring ecosystem and distributed systems,
+            with a strong focus on creating efficient, maintainable, and performant solutions.
+        </p>
+        
+        <div class="social-links">
+            <a href="https://github.com/NTPxz" target="_blank" class="social-link" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/nuthipong-pinyai-346753353" target="_blank" class="social-link" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            
+            <a href="mailto:nuthipong.py@gmail.com" class="social-link" title="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <h2>Education</h2>
+        <div class="cards-container">
+            <div class="education">
+                <div class="education-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Chiang_mai_university_logo.png" alt="Chiang Mai University Logo" class="logo">
+                    <div style="width: 100%;">
+                        <h3>
+                            Chiang Mai University
+                            <span class="year-tag">2021-2024</span>
+                        </h3>
+                        <h4>College of Arts, Media and Technology (CAMT)</h4>
+                    </div>
+                </div>
+                <div class="education-details">
+                    <p><strong>Program:</strong> Digital Industry Integration</p>
+                    <p><strong>Field:</strong> Software Engineering</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="section tech-stack">
+        <h2>Tech Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item" data-tech="java">Java</div>
+            <div class="tech-item" data-tech="spring">Spring Boot</div>
+            <div class="tech-item" data-tech="microservices">Microservices</div>
+            <div class="tech-item" data-tech="docker">Docker</div>
+            <div class="tech-item" data-tech="kubernetes">Kubernetes</div>
+            <div class="tech-item" data-tech="mongodb">MongoDB</div>
+            <div class="tech-item" data-tech="mysql">MySQL</div>
+            <div class="tech-item" data-tech="redis">Redis</div>
+            <div class="tech-item" data-tech="elasticsearch">Elasticsearch</div>
+            <div class="tech-item" data-tech="opensearch">Opensearch</div>
+            <div class="tech-item" data-tech="aws">AWS</div>
+            <div class="tech-item" data-tech="rest">REST API</div>
+            <div class="tech-item" data-tech="graphql">GraphQL</div>
+            <div class="tech-item" data-tech="junit">JUnit</div>
+            <div class="tech-item" data-tech="maven">Maven</div>
+            <div class="tech-item" data-tech="gradle">Gradle</div>
+            <div class="tech-item" data-tech="git">Git</div>
+        </div>
+    </section>
+    
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="section work-section">
+        <h2>Work Experience</h2>
+        <div class="cards-container">
+            <div class="education work">
+                <div class="education-header">
+                    <img src="https://img2.pic.in.th/pic/logo-604.webp" alt="AUTOPAIR Logo" class="logo">
+                    <div style="width: 100%;">
+                        <h3>
+                            Backend Developer
+                            <span class="year-tag">2023 - present</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="education-details">
+                    <p>Developed comprehensive backend systems for automotive ERP using Java Spring Boot. Architected and implemented REST and GraphQL APIs, integrated performance-enhancing technologies (Redis, Elasticsearch, Kafka), and established CI/CD pipelines. Contributed to system design and business requirement analysis while working in an ISO/IEC 29110 certified Agile environment.</p>
+                </div>
+            </div>
+
+            <div class="education work">
+                <div class="education-header">
+                    <img src="https://img2.pic.in.th/pic/logo-604.webp" alt="AUTOPAIR Logo" class="logo">
+                    <div style="width: 100%;">
+                        <h3>
+                            Student Internship
+                            <span class="year-tag">2022 - 2023</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="education-details">
+                    <p>Gained valuable experience in software testing, working with both manual and automated testing methodologies. Utilized Cypress for implementing automated test suites to ensure application quality and reliability. Additionally, received training in backend development fundamentals within the same organization where I currently work as a Backend Developer, providing a strong foundation for my current role.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        &copy; <span id="year">2025</span> Nuthipong Pinyai - Designed with simplicity
+    </footer>
+    
+    <script>
+        // Update year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Tech-specific brand colors for hover effects
+        const techColors = {
+            'java': 'var(--java-color)',
+            'spring': 'var(--spring-color)',
+            'microservices': 'var(--microservices-color)',
+            'docker': 'var(--docker-color)',
+            'kubernetes': 'var(--kubernetes-color)',
+            'mongodb': 'var(--mongodb-color)',
+            'mysql': 'var(--mysql-color)',
+            'redis': 'var(--redis-color)',
+            'elasticsearch': 'var(--elasticsearch-color)',
+            'opensearch': 'var(--opensearch-color)',
+            'aws': 'var(--aws-color)',
+            'rest': 'var(--rest-color)',
+            'graphql': 'var(--graphql-color)',
+            'junit': 'var(--junit-color)',
+            'maven': 'var(--maven-color)',
+            'gradle': 'var(--gradle-color)',
+            'git': 'var(--git-color)'
+        };
+        
+        // Apply themed hover effects to tech items
+        const techItems = document.querySelectorAll('.tech-item');
+        
+        techItems.forEach(item => {
+            const tech = item.getAttribute('data-tech');
+            
+            item.addEventListener('mouseenter', () => {
+                const techColor = techColors[tech] || 'var(--one-dark-blue)';
+                // Apply a very light version of the color with transparency
+                const techColorLight = techColor + '15'; // 15 is hex for approximately 8% opacity
+                item.style.borderColor = techColor;
+                item.style.color = techColor;
+                item.style.backgroundColor = techColorLight;
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.borderColor = '';
+                item.style.color = '';
+                item.style.backgroundColor = '';
+            });
+        });
+        
+        // Education and Work section hover effects
+        const educationCards = document.querySelectorAll('.education');
+        
+        educationCards.forEach(card => {
+            if (card.classList.contains('work')) {
+                card.addEventListener('mouseenter', () => {
+                    card.style.borderLeftColor = 'var(--autopair-color)';
+                    const yearTag = card.querySelector('.year-tag');
+                    if (yearTag) yearTag.style.backgroundColor = 'var(--autopair-color)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.borderLeftColor = '';
+                    const yearTag = card.querySelector('.year-tag');
+                    if (yearTag) yearTag.style.backgroundColor = '';
+                });
+            } else {
+                card.addEventListener('mouseenter', () => {
+                    card.style.borderLeftColor = 'var(--cmu-color)';
+                    const yearTag = card.querySelector('.year-tag');
+                    if (yearTag) yearTag.style.backgroundColor = 'var(--cmu-color)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.borderLeftColor = '';
+                    const yearTag = card.querySelector('.year-tag');
+                    if (yearTag) yearTag.style.backgroundColor = '';
+                });
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
