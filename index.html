@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuthipong Pinyai — Software Engineer</title>
+    <title>Nuthipong</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2306060f'/><rect width='32' height='32' rx='8' fill='none' stroke='%2322d3ee' stroke-width='1.5' opacity='0.6'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%2322d3ee' font-family='monospace' font-weight='bold' font-size='14'>NP</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -565,6 +566,25 @@
             50%      { opacity: 0.45; transform: scale(0.75); }
         }
 
+        .work-onsite {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.35rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.2rem 0.65rem 0.2rem 0.3rem;
+        }
+        .onsite-logo {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
         .work-desc {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -782,7 +802,11 @@
                                     </span>
                                 </div>
                                 <p class="work-company">Tata Consultancy Services</p>
-                                <p class="work-period">May 2025 — present · Full-time · Onsite at True Corporation</p>
+                                <p class="work-period">May 2025 — present · Full-time</p>
+                                <span class="work-onsite">
+                                    <img src="https://vectorseek.com/wp-content/uploads/2024/10/Dtac-True-Logo-Vector.png" alt="True Corporation" class="onsite-logo">
+                                    Onsite · True Corporation
+                                </span>
                             </div>
                         </div>
                         <p class="work-desc">
